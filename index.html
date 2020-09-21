@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+
+
+<head>
+<title>Etch-A-Sketch</title>
+</head>
+
+<body>
+
+
+<h1>Etch-A-Sketch</h1>
+
+<fieldset class="setup">Would you like to use a pen or a pencil crayon?
+    <input type="radio" id="pen" name="pen-or-pencil" value="pen" checked>Pen
+    <input type="radio" id="pencil-crayon" name="pen-or-pencil" value="pencil-crayon">Pencil Crayon
+</fieldset>
+
+<fieldset class="setup">How many pixels would you like?
+    <input id="pixels" value="10">
+</fieldset>
+
+<fieldset class="setup">How big would you like the canvas?    
+    <input type="radio" id="small" name="canvas-size" value="small">Small
+    <input type="radio" id="medium" name="canvas-size" value="medium" checked>Medium
+    <input type="radio" id="large" name="canvas-size" value="large">Large
+</fieldset>
+
+<fieldset  class="setup">
+    <input type=radio id="classic" name="color" value="#454746" checked>Classic
+    <input type="radio" id="red" name="color" value="red">Red
+    <input type="radio" id="blue" name="color" value="blue">Blue
+    <input type="radio" id="green" name="color" value="green">Green
+    <input type="radio" id="yellow" name="color" value="yellow">Yellow
+    <input type="radio" id="orange" name="color" value="orange">Orange
+    <input type="radio" id="purple" name="color" value="purple">Purple
+    <input type="radio" id="brown" name="color" value="brown">Brown
+    <input type="radio" id="black" name="color" value="black">Black
+    <input type="radio" id="random" name="color" value="random">Random
+</fieldset>
+
+<button class="setup" id="btn" >Click Here To Start</button>
+
+
+<div id="etch-a-sketch-container">
+    <img id="logo" src="images/Etch-a-Sketch.png" class="hidden">
+    <div id="dial-left" class="dial-left-temp hidden"></div>
+    <div id="dial-right" class="dial-right-temp hidden"></div>
+    <div style="height:400px; width:400px" id="canvas" class="hidden"></div>
+</div>
+
+</body>
+</html>
