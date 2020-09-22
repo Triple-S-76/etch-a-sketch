@@ -37,11 +37,34 @@ let cellOpacity = 0;
 let addShade = 0.1;
 let newOpacity = 0;
 
+let buttonPressed = 'no';
+let time = 0;
+let test = 0;
+let etchASketchContainer = '';
 
+button.addEventListener('click', shakeScreen);
 
-button.addEventListener('click', runSetup);
+function shakeScreen() {
+    
+    if (buttonPressed == 'no') {
+        buttonPressed = 'yes';
+        runSetup();
+    } else {
+        etchASketchContainer = document.querySelector('#etch-a-sketch-container');
+        etchASketchContainer.classList.add('etch-a-sketch-shake');
+        delay();
+    };
+}
 
-function runSetup() {
+function delay() {
+    setTimeout(function() {
+        etchASketchContainer.classList.remove('etch-a-sketch-shake');
+        runSetup();
+    }, 1100)    
+}
+
+function runSetup() {    
+    button.innerText = 'Press to shake and clear the screen';
 
     pixels = document.querySelector('#pixels') // set number of pixels
 
@@ -62,8 +85,6 @@ function runSetup() {
     });
 };
 
-
-
 function replaceCanvas() {
     canvasSize();
 
@@ -81,8 +102,6 @@ function replaceCanvas() {
     
     body.appendChild(newDiv);
 };
-
-
 
 function canvasSize() { 
     let x = document.querySelector('input[name="canvas-size"]:checked')
@@ -108,18 +127,6 @@ function canvasSize() {
         sizeChosen = "large";
     }
 }
-
-/*
-function addLogo() {
-    if (canvasSizeChosen == 'small') {
-        logo.classList = 'logoSmall'
-    } else {
-        logo.classList = 'img';
-    }
-    //document.body.appendChild(logo);
-}
-*/
-
 
 function createDivRows() {
     for (x = 1; x <= totalRowsNeeded; x++) {
@@ -191,8 +198,6 @@ function colorCell(x) {
             cellOpacity = this.style.opacity;
             newOpacity = parseFloat(cellOpacity) + addShade;
         }
-        
-        this.style.opacity = newOpacity;
-        
+        this.style.opacity = newOpacity;       
     };
 };
